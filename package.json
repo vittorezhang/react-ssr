@@ -1,0 +1,23 @@
+{
+  "name": "react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vittore0115/react-ssr.git"
+  },
+  "keywords": [],
+	"author": {
+    "name": "Vittore",
+    "email": "yc_zwt@163.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vittore0115/react-ssr/issues"
+  },
+  "homepage": "https://github.com/Vittore0115/react-ssr#readme"
+}
