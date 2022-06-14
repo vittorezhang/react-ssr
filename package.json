@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:server": "webpack --config webpack.server.js --watch",
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vittore0115/react-ssr.git"
   },
   "keywords": [],
-	"author": {
+  "author": {
     "name": "Vittore",
     "email": "yc_zwt@163.com"
   },
@@ -19,5 +21,19 @@
   "bugs": {
     "url": "https://github.com/Vittore0115/react-ssr/issues"
   },
-  "homepage": "https://github.com/Vittore0115/react-ssr#readme"
+  "homepage": "https://github.com/Vittore0115/react-ssr#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "babel-loader": "^8.2.5",
+    "express": "^4.18.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
 }
