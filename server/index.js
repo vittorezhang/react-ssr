@@ -7,9 +7,9 @@ import App from "../src/APP";
 const app = express();
 
 app.get('/',(req,res)=>{
-	const Page = <App></App>
+	// const Page = <App></App>
 	// 把react 组件解析成html
-	const content = renderToString(Page)
+	const content = renderToString(App)
 	// 字符串模板
 	res.send(`
 		<html>
