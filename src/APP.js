@@ -1,7 +1,12 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 function App(params) {
-	return <h1>ssr 服务端渲染</h1>
+	const [count,setCount] = useEffect(1)
+	return <div>
+		<h1>哈喽 {props.title} !{count}</h1>
+		<
+		<button onClick={()=>setCount(count + 1)}>累加</button>
+	</div>
 }
 
-export default App
+export default <App title="ssr 服务端渲染"></App>
