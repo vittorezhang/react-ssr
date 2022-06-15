@@ -5,6 +5,7 @@ import express from "express";
 import App from "../src/APP";
 
 const app = express();
+app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
 	// const Page = <App></App>
@@ -17,6 +18,7 @@ app.get('/',(req,res)=>{
 			<title>react ssr</title>
 			<body>
 				<div id="root">${content}</div>
+				<script src="/bundle.js"></script>
 			</body>
 		</html>
 	`)
