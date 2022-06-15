@@ -4,7 +4,6 @@ function App(params) {
 	const [count,setCount] = useEffect(1)
 	return <div>
 		<h1>哈喽 {props.title} !{count}</h1>
-		<
 		<button onClick={()=>setCount(count + 1)}>累加</button>
 	</div>
 }
