@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react';
+import React,{useState} from 'react';
 
-function App(params) {
-	const [count,setCount] = useEffect(1)
+function App(props) {
+	const [count,setCount] = useState(1)
 	return <div>
 		<h1>哈喽 {props.title} !{count}</h1>
 		<button onClick={()=>setCount(count + 1)}>累加</button>
