@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vittore0115/react-ssr.git"
+    "url": "git+https://github.com/vittorezhang/react-ssr.git"
   },
   "keywords": [],
   "author": {
@@ -19,9 +19,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Vittore0115/react-ssr/issues"
+    "url": "https://github.com/vittorezhang/react-ssr/issues"
   },
-  "homepage": "https://github.com/Vittore0115/react-ssr#readme",
+  "homepage": "https://github.com/vittorezhang/react-ssr#readme",
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
