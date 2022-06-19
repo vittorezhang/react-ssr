@@ -11,9 +11,9 @@ const changeList = list =>({
   list
 })
 
-const getIndexList = server =>{
+export const getIndexList = server =>{
   return (dispatch,getState,actionInstance)=>{
-    return Axios.get(`http://localhost:9090/course/list`).then(res=>{
+    return Axios.get(`http://localhost:9090/api/course/list`).then(res=>{
       const {list} = res.data
       dispatch(changeList(list))
     })
