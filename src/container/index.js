@@ -9,7 +9,7 @@ function Index(props) {
   //   props.getIndexList()
   // },[])
 	return <div>
-		<h1>哈喽 !{count}</h1>
+		<h1>哈喽呀 !{count}</h1>
 		<button onClick={()=>setCount(count + 1)}>累加</button>
     <hr/>
       <ul>
