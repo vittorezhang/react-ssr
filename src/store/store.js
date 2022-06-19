@@ -3,7 +3,7 @@ import { createStore,applyMiddleware,combineReducers } from "redux";
 import thunk from "redux-thunk";
 import indexReducer from "./index";
 
-const reducer = ({
+const reducer = combineReducers({
   index: indexReducer
 })
 
