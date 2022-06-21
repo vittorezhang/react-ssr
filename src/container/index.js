@@ -4,10 +4,12 @@ import { getIndexList } from "../store/index";
 
 function Index(props) {
 	const [count,setCount] = useState(1)
-  // useEffect(()=>{
-	// 	// 异步数据首页显示
-  //   props.getIndexList()
-  // },[])
+  useEffect(()=>{
+		// 异步数据首页显示
+    if(!props.list.length){
+      props.getIndexList()
+    }
+  },[])
 	return <div>
 		<h1>哈喽呀 !{count}</h1>
 		<button onClick={()=>setCount(count + 1)}>累加</button>
