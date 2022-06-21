@@ -11,7 +11,7 @@ const Page = (<Provider store={store}>
     <BrowserRouter>
       {/* {App} */}
 			{routes.map(route=>{
-				<Route {...route}></Route>
+			  return <Route {...route}></Route>
 			})}
     </BrowserRouter>
   </Provider>)
