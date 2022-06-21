@@ -3,8 +3,9 @@ import ReactDom from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import routes from '../src/APP'
-import store from "../src/store/store";
+import {getClientStore} from "../src/store/store";
 
+const store = getClientStore()
 // 注水 客户端入口
 const Page = (<Provider store={store}>
     <BrowserRouter>
