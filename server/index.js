@@ -6,6 +6,7 @@ import express from "express";
 import { Provider } from "react-redux";
 import routes from "../src/APP";
 import {getServerStore} from "../src/store/store";
+import Header from "../src/components/Header";
 
 const app = express();
 app.use(express.static('public'))
@@ -40,6 +41,7 @@ app.get('*',(req,res)=>{
 		const content = renderToString(
 			<Provider store={store}>
 				<StaticRouter location={req.url}>
+          <Header></Header>
 					{/* {App} */}
 					{routes.map(route=>{
 						return <Route {...route}></Route>
