@@ -9,9 +9,9 @@ const reducer = combineReducers({
 
 // 创建store
 
-const store = createStore(reducer,applyMiddleware(thunk))
+// const store = createStore(reducer,applyMiddleware(thunk))
 
-export default store
+// export default store
 
 export const getClientStore = ()=>{
 	// 浏览器端使用
