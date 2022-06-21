@@ -5,11 +5,11 @@ import { StaticRouter, matchPath, Route} from "react-router-dom";
 import express from "express";
 import { Provider } from "react-redux";
 import routes from "../src/APP";
-import store from "../src/store/store";
+import {getServerStore} from "../src/store/store";
 
 const app = express();
 app.use(express.static('public'))
-
+const store = getServerStore()
 app.get('*',(req,res)=>{
 	// 获取根据路由渲染出的组件，并且拿到loadData方法，获取数据
 	const promises = [];
@@ -56,6 +56,9 @@ app.get('*',(req,res)=>{
 				<title>react ssr</title>
 				<body>
 					<div id="root">${content}</div>
+					<script>
+						window.__context=${JSON.stringify(store.getState())}
+					</script>
 					<script src="/bundle.js"></script>
 				</body>
 			</html>
