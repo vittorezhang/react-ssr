@@ -17,8 +17,6 @@ app.get('*',(req,res)=>{
 // 路由匹配
 	routes.some(route=>{
 		const match = matchPath(req.path,route)
-		console.log(match)
-
 		if(match){
 			const {loadData} = route.component
 			if(loadData){
@@ -44,7 +42,7 @@ app.get('*',(req,res)=>{
 				<StaticRouter location={req.url}>
 					{/* {App} */}
 					{routes.map(route=>{
-						<Route {...route}></Route>
+						return <Route {...route}></Route>
 					})}
 				</StaticRouter>
 			</Provider>
