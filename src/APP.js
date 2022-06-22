@@ -2,7 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import Index from "./container/index";
 import About from "./container/about";
-
+import User from "./container/user";
 
 // export default (
 // 	<div>
@@ -26,5 +26,11 @@ export default [
 		component: About,
 		exact: true,
 		key: 'about'
-	}
+	},
+	{
+    path:"/user",
+    component: User,
+    exact:true,
+    key:'user'
+  },
 ]
