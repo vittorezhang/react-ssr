@@ -18,7 +18,7 @@ export default [
 		path: '/',
 		component: Index,
 		// loadData: Index.loadData,
-		exact: true,
+		exact: false,
 		key: 'index'
 	},
 	{
@@ -28,9 +28,9 @@ export default [
 		key: 'about'
 	},
 	{
-    path:"/user",
+    path: "/user",
     component: User,
-    exact:true,
-    key:'user'
+    exact: true,
+    key: 'user'
   },
 ]
