@@ -63,6 +63,18 @@ app.get('*',(req,res)=>{
 				</body>
 			</html>
 		`)
+	}).catch((err)=>{
+		res.send(`
+			<html>
+				<meta charset="utf-8">
+				<title>react ssr</title>
+				<body>
+					<div id="root" style="text-align:center;">
+						<h1>Request failed with status code 404</h1>
+					</div>
+				</body>
+			</html>
+		`)
 	})
 })
 
