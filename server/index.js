@@ -21,9 +21,9 @@ app.get('*',(req,res)=>{
 		if(match){
 			const {loadData} = route.component
 			if(loadData){
-
-				// 包装后
-				// 规避报错 可以考虑加日志
+        // 服务端报错处理
+				// 1、包装后,规避报错 可以考虑加日志
+        // 2、使用promise.finally()
 				const promise = new Promise((resolve,reject)=>{
 					loadData(store).then(resolve).catch(resolve)
 				})
