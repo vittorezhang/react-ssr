@@ -24,11 +24,11 @@ app.get('*',(req,res)=>{
 
 				// 包装后
 				// 规避报错 可以考虑加日志
-				// const promise = new Promise((resolve,reject)=>{
-				// 	loadData(store).then(resolve).catch(resolve)
-				// })
-				// promises.push(promise)
-				promises.push(loadData(store))
+				const promise = new Promise((resolve,reject)=>{
+					loadData(store).then(resolve).catch(resolve)
+				})
+				promises.push(promise)
+				// promises.push(loadData(store))
 
 			}
 		}
