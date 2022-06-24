@@ -2,6 +2,8 @@
 
 import Axios from "axios"
 
+// import request from "./request";
+
 // actionType
 const GET_LIST = 'INDEX/GET_LIST'
 
