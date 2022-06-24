@@ -11,10 +11,10 @@ app.get('/api/course/list',(req,res)=>{
   res.json({
     code:0,
     list:[
-      {name:'web全栈',id:1},
-      {name:'js高级',id:2},
-      {name:'web小白',id:3},
-      {name:'java架构师',id:4},
+      {name:'我们修复bug,完善自我;',id:1},
+      {name:'我们精进代码,筑起壁垒;',id:2},
+      {name:'我们优化算法,突破边界;',id:3},
+      {name:'我们从1到N,持续进取。',id:4},
     ]
   })
 })
