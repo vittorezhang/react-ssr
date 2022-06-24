@@ -1,6 +1,6 @@
 // 首页的逻辑
 
-import Axios from "axios"
+// import Axios from "axios"
 
 // import request from "./request";
 
@@ -14,8 +14,8 @@ const changeList = list =>({
 })
 
 export const getIndexList = server =>{
-  return (dispatch,getState,actionInstance)=>{
-    return Axios.get(`http://localhost:9090/api/course/list`).then(res=>{
+  return (dispatch,getState,$axios)=>{
+    return $axios.get(`/api/course/list`).then(res=>{
       const {list} = res.data
 			console.log('list:',list);
       dispatch(changeList(list))

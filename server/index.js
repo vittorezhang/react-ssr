@@ -4,14 +4,26 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter, matchPath, Route} from "react-router-dom";
 import express from "express";
 import { Provider } from "react-redux";
+import proxy from 'http-proxy-middleware'
 import routes from "../src/APP";
 import {getServerStore} from "../src/store/store";
 import Header from "../src/components/Header";
 
 const app = express();
 app.use(express.static('public'))
+
+// 客户端来的api开头的请求
+app.use(
+  '/api',
+  proxy({ target: 'http://localhost:9090', changeOrigin: true })
+);
+
 const store = getServerStore()
 app.get('*',(req,res)=>{
+  // if(req.url.startsWith('/api/')){
+  //   // 不渲染页面，使用axios转发 axios.get
+  // }
+
 	// 获取根据路由渲染出的组件，并且拿到loadData方法，获取数据
 	const promises = [];
 // use `some` to imitate `<Switch>` behavior of selecting only
