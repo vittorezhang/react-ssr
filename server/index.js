@@ -49,10 +49,11 @@ app.get('*',(req,res)=>{
 	// 等待所有网络请求结束再渲染
 	Promise.all(promises).then(()=>{
 		// const Page = <App></App>
+		const context = {}
 		// 把react 组件解析成html
 		const content = renderToString(
 			<Provider store={store}>
-				<StaticRouter location={req.url}>
+				<StaticRouter location={req.url} context={context}>
           <Header></Header>
 					{/* {App} */}
 					{routes.map(route=>{
@@ -61,6 +62,10 @@ app.get('*',(req,res)=>{
 				</StaticRouter>
 			</Provider>
 		)
+		if(context.statuscode){
+      // 状态的切换和页面跳转
+      res.status(context.statuscode)
+    }
 		// 字符串模板
 		res.send(`
 			<html>
