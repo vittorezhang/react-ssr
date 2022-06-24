@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom';
 import Index from "./container/index";
 import About from "./container/about";
 import User from "./container/user";
+import NotFound from "./container/notFound";
 import './App.css'
 
 // export default (
@@ -34,4 +35,8 @@ export default [
     exact: true,
     key: 'user'
   },
+	{
+		component: NotFound,
+		key: 'notFound'
+	}
 ]
