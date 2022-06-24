@@ -18,7 +18,7 @@ export default [
 		path: '/',
 		component: Index,
 		// loadData: Index.loadData,
-		exact: false,
+		exact: true,
 		key: 'index'
 	},
 	{
