@@ -68,6 +68,10 @@ app.get('*',(req,res)=>{
       // 状态的切换和页面跳转
       res.status(context.statuscode)
     }
+    if(context.action === 'REPLACE'){
+      // 状态的切换和页面重定向
+      res.redirect(301,context.url)
+    }
 		// 字符串模板
 		res.send(`
 			<html>
