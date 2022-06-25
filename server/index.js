@@ -1,7 +1,7 @@
 // 这里的node的代码，会用babel处理
 import React from "react";
 import { renderToString } from "react-dom/server";
-import { StaticRouter, matchPath, Route} from "react-router-dom";
+import { StaticRouter, matchPath, Route, Switch} from "react-router-dom";
 import express from "express";
 import { Provider } from "react-redux";
 import proxy from 'http-proxy-middleware'
@@ -56,9 +56,11 @@ app.get('*',(req,res)=>{
 				<StaticRouter location={req.url} context={context}>
           <Header></Header>
 					{/* {App} */}
-					{routes.map(route=>{
-						return <Route {...route}></Route>
-					})}
+          <Switch>
+            {routes.map(route=>{
+              return <Route {...route}></Route>
+            })}
+          </Switch>
 				</StaticRouter>
 			</Provider>
 		)
