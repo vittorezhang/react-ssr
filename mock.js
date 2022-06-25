@@ -3,6 +3,18 @@
 const express = require('express')
 const app = express()
 
+
+/**
+ * 前后端接口请求
+ * ===============================>(跨域)
+ * 浏览器=======>ssrNode=======>数据接口(mock)
+ */
+
+/**
+ * ssr额外的性能损耗，日常没问题，大流量期间如何尽可能的规避，让服务稳定
+ * 
+ */
+
 app.get('/api/course/list',(req,res)=>{
   // 支持跨域调用 Access-Control-Allow-Origin
   // res.header('Access-Control-Allow-Origin','*')
