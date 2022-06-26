@@ -1,8 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import { connect } from "react-redux";
 import { getIndexList } from "../store/index";
-
+import styles from "./index.css";
+// console.log(styles._getCss());
 function Index(props) {
+	if(props.staticContext){
+		props.staticContext.css.push(styles._getCss())
+	}
 	const [count,setCount] = useState(1)
   useEffect(()=>{
 		// 异步数据首页显示
@@ -10,8 +14,8 @@ function Index(props) {
       props.getIndexList()
     }
   },[])
-	return <div>
-		<h1>哈喽呀 !{count}</h1>
+	return <div className={styles.container}>
+		<h1 className={styles.title}>哈喽呀 !{count}</h1>
 		<button onClick={()=>setCount(count + 1)}>累加</button>
     <hr/>
       <ul>

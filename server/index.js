@@ -64,7 +64,9 @@ app.get('*',(req,res)=>{
 	// 等待所有网络请求结束再渲染
 	Promise.all(promises).then(()=>{
 		// const Page = <App></App>
-		const context = {}
+		const context = {
+			css:[]
+		}
 		// 把react 组件解析成html
 		const content = renderToString(
 			<Provider store={store}>
@@ -87,12 +89,16 @@ app.get('*',(req,res)=>{
       // 状态的切换和页面重定向
       res.redirect(301,context.url)
     }
+		const css = context.css.join('\n')
 		// 字符串模板
 		res.send(`
 			<html>
 				<head>
 					<meta charset="utf-8">
 					<title>react ssr</title>
+					<style>
+						${css}
+					</style>
 				</head>	
 				<body>
 					<div id="root">${content}</div>
