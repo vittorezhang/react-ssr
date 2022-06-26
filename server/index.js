@@ -75,8 +75,10 @@ app.get('*',(req,res)=>{
 		// 字符串模板
 		res.send(`
 			<html>
-				<meta charset="utf-8">
-				<title>react ssr</title>
+				<head>
+					<meta charset="utf-8">
+					<title>react ssr</title>
+				</head>	
 				<body>
 					<div id="root">${content}</div>
 					<script>
@@ -89,8 +91,10 @@ app.get('*',(req,res)=>{
 	}).catch((err)=>{
 		res.send(`
 			<html>
-				<meta charset="utf-8">
-				<title>react ssr</title>
+				<head>
+					<meta charset="utf-8">
+					<title>react ssr</title>
+				</head>			
 				<body>
 					<div id="root" style="text-align:center;">
 						<h1>Request failed with status code 404</h1>
