@@ -1,4 +1,6 @@
 // 这里的node的代码，会用babel处理
+import Path from "path";
+import Fs from "fs";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter, matchPath, Route, Switch} from "react-router-dom";
@@ -19,11 +21,24 @@ app.use(
 );
 
 const store = getServerStore()
+
+function csrRender(res) {
+	// 读取csr文件并返回
+	const fileName = Path.resolve(process.cwd(),'public/index.csr.html')
+	const html = Fs.readFileSync(fileName,'utf-8')
+	return res.send(html)
+}
+
 app.get('*',(req,res)=>{
   // if(req.url.startsWith('/api/')){
   //   // 不渲染页面，使用axios转发 axios.get
   // }
-
+	// 配置开关开启csr
+	// 服务器负载过高,内存占用过高
+	if(req.query._mode == 'csr'){
+		console.log('开启了csr');
+		return csrRender(res)
+	}
 	// 获取根据路由渲染出的组件，并且拿到loadData方法，获取数据
 	const promises = [];
 // use `some` to imitate `<Switch>` behavior of selecting only
