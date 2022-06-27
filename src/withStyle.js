@@ -1,4 +1,5 @@
 import React from "react";
+// 方案1
 function withStyle(Comps,styles) {
 	return function (props) {
 		if(props.staticContext){
