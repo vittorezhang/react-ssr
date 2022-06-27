@@ -46,5 +46,5 @@ app.get('/api/user/info',(req,res)=>{
 })
 
 app.listen('9090',()=>{
-  console.log('mock启动完毕');
+  console.log('mock启动完毕: http://localhost:8090');
 })
