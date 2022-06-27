@@ -14,9 +14,17 @@ async function test() {
 }
 
 // test()
-
+const urlCache = {}
 app.get('*', async function (req, res) {
 	console.log(req.url);
+	// 遍历所有的路由，都写成html文件，或者都缓存上
+	//响应较慢
+	// 解决方案1. 加缓存
+	// if(urlCache[url]){
+	// 	return res.send(urlCache[url])
+	// }
+  // 解决方案2. lru缓存算法 TODO 
+
 	if (req.url == '/favicon.ico') {
 		// 对seo 无影响
 		return res.send({ code: 0 })
@@ -29,6 +37,7 @@ app.get('*', async function (req, res) {
 	})
 	const html = await page.content()
 	console.log(html);
+	// urlCache[url] = html
 	res.send(html)
 })
 app.listen(8081, () => {
