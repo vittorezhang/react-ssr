@@ -23,10 +23,21 @@ function Index(props) {
 	</div>
 }
 
-Index.loadData = (store)=>{
-	return store.dispatch(getIndexList())
-}
-export default connect(
+
+/**
+ * 问题: withStyle高阶组件，导致loadData 失效 
+ * 解决方案1: 调整代码执行顺序，先使用withStyle高阶组件，后添加loadData 
+ */
+
+let NewIndex =  connect(
   state => ({list: state.index.list}),
   {getIndexList}
 )(withStyle(Index,styles))
+
+
+NewIndex.loadData = (store)=>{
+	return store.dispatch(getIndexList())
+}
+
+export default NewIndex
+
