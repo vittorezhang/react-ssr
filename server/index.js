@@ -7,6 +7,7 @@ import { StaticRouter, matchPath, Route, Switch} from "react-router-dom";
 import express from "express";
 import { Provider } from "react-redux";
 import proxy from 'http-proxy-middleware'
+import config from "./config";
 import routes from "../src/App";
 import {getServerStore} from "../src/store/store";
 import Header from "../src/components/Header";
@@ -33,10 +34,16 @@ app.get('*',(req,res)=>{
   // if(req.url.startsWith('/api/')){
   //   // 不渲染页面，使用axios转发 axios.get
   // }
-	// 配置开关开启csr
-	// 服务器负载过高,内存占用过高
-	if(req.query._mode == 'csr'){
-		console.log('开启了csr');
+	
+	if(req.query._mode==='csr'){
+		console.log('路由控制客户端渲染')
+		return csrRender(res)
+		// 服务器负载过高,内存占用过高
+		// err.code==500
+		// cpu or内存占比 降级
+	}
+	if(config.csr){
+		console.log('csr全局开关打开')
 		return csrRender(res)
 	}
 	// 获取根据路由渲染出的组件，并且拿到loadData方法，获取数据
