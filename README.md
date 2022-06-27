@@ -2,21 +2,10 @@
 
 ## Project setup
 ```
-yarn install
+npm start
 ```
-
-### Compiles and hot-reloads for development
+## Access links
 ```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+http://localhost:8090
 ```
 
