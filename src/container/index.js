@@ -29,15 +29,29 @@ function Index(props) {
  * 解决方案1: 调整代码执行顺序，先使用withStyle高阶组件，后添加loadData 
  */
 
-let NewIndex =  connect(
-  state => ({list: state.index.list}),
-  {getIndexList}
-)(withStyle(Index,styles))
+// let NewIndex =  connect(
+//   state => ({list: state.index.list}),
+//   {getIndexList}
+// )(withStyle(Index,styles))
 
 
-NewIndex.loadData = (store)=>{
-	return store.dispatch(getIndexList())
+// NewIndex.loadData = (store)=>{
+// 	return store.dispatch(getIndexList())
+// }
+
+// export default NewIndex
+
+/**
+ * 问题: withStyle高阶组件，导致loadData 失效 
+ * 解决方案2: 在withStyle高阶组件，添加loadData
+ */
+
+
+Index.loadData = (store)=>{
+  return store.dispatch(getIndexList())
 }
 
-export default NewIndex
-
+export default connect(
+  state=>({list:state.index.list}),
+  {getIndexList}
+)(withStyle(Index,styles))
